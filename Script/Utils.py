@@ -1,5 +1,7 @@
 from PyQt5.QtWidgets import QMessageBox
 
+EXECUTION = 'MapleStory.exe'
+
 HEAD_ICON_PATH = '../UI/Res/MapleStory.ico'
 REFRESH_ICON_PATH = '../UI/Res/Refresh.png'
 BACKGROUND_ICON_PATH = '../UI/Res/BackGround.jpg'

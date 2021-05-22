@@ -156,6 +156,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         widget.exec()
 
     def start_maple_story(self):
+        import os
+        command = Utils.EXECUTION + ' ' + self.current_selected_ip
+        os.system(command)
         print('start maple story')
 
 
