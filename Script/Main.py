@@ -157,6 +157,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def start_maple_story(self):
         print('start maple story')
-        
+
 
 
