@@ -4,3 +4,9 @@
 Script/__pycache__/
 
 UI/__pycache__/
+
+build/
+
+dist/
+
+*.spec
