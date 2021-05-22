@@ -66,6 +66,7 @@ class Ui_NewAccountWidget(object):
         font = QtGui.QFont()
         font.setPointSize(25)
         self.ConfirmButton.setFont(font)
+        self.ConfirmButton.setDefault(True)
         self.ConfirmButton.setObjectName("ConfirmButton")
 
         self.retranslateUi(NewAccountWidget)
