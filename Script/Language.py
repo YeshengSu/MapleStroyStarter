@@ -5,6 +5,9 @@ NEW_ACCOUNT_POPUP_SUCCEED = '注册成功'
 RESET_PASSWORD_POPUP_TITLE = '修改密码'
 RESET_PASSWORD_POPUP_CONTENT = '是否确认修改密码？'
 
+OPEN_GAME_TITLE = '打开游戏'
+OPEN_GAME_CONTENT = '请放在 [ MapleStory.exe ] 目录下'
+
 EMPTY_ACCOUNT = '没有输入账号'
 EMPTY_PASSWORD = '没有输入密码'
 CONSISTENT_PASSWORD = '两次密码相同'

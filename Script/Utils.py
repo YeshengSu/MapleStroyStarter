@@ -2,9 +2,9 @@ from PyQt5.QtWidgets import QMessageBox
 
 EXECUTION = 'MapleStory.exe'
 
-HEAD_ICON_PATH = 'UI/Res/MapleStory.ico'
-REFRESH_ICON_PATH = 'UI/Res/Refresh.png'
-BACKGROUND_ICON_PATH = 'UI/Res/BackGround.jpg'
+HEAD_ICON_PATH = 'Res/MapleStory.ico'
+REFRESH_ICON_PATH = 'Res/Refresh.png'
+BACKGROUND_ICON_PATH = 'Res/BackGround.jpg'
 MAPLE_STORY_URL = 'http://www.baidu.com'
 
 def popup_warning(widget, title, content, callback=None):

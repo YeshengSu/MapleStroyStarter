@@ -140,12 +140,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         add_server_item('超神服务器', Language.SERVER_SITUATION_BUSY, TEST_IP, True)
 
     def on_clicked_login(self):
-        if self.current_selected_ip:
-            print ('login in server', self.current_selected_ip)
-        elif self.current_selected_ip == '':
+        if self.current_selected_ip == '':
             Utils.popup_critical(self, Language.SERVER_ITEM, Language.CANT_ENTER_SERVER)
         elif self.current_selected_ip is None:
             Utils.popup_critical(self, Language.SERVER_ITEM, Language.SELECT_SERVER)
+        else:
+            print('login in server', self.current_selected_ip)
+            self.start_maple_story()
 
     def on_clicked_reset(self):
         widget = ResetPasswordWindow()
@@ -157,9 +158,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def start_maple_story(self):
         import os
-        command = Utils.EXECUTION + ' ' + self.current_selected_ip
-        os.system(command)
-        print('start maple story')
+        import subprocess
+        if not os.path.exists(Utils.EXECUTION):
+            Utils.popup_critical(self, Language.OPEN_GAME_TITLE, Language.OPEN_GAME_CONTENT)
+        else:
+            print('start maple story')
+            command = Utils.EXECUTION + ' ' + self.current_selected_ip
+            os.system(command)
+            print(command)
 
 
 
