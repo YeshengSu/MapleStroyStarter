@@ -132,24 +132,32 @@
    <widget class="QPushButton" name="RefreshServerButton">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>30</y>
-      <width>30</width>
-      <height>30</height>
+      <x>290</x>
+      <y>20</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="QWidget" name="Information" native="true">
+   <widget class="QPushButton" name="TopUpButton">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>30</y>
-      <width>521</width>
-      <height>461</height>
+      <x>650</x>
+      <y>450</y>
+      <width>230</width>
+      <height>50</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>30</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>游戏充值</string>
     </property>
    </widget>
   </widget>

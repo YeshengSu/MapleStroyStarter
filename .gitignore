@@ -1,9 +1,9 @@
 
 .idea/
 
-Script/__pycache__/
+script/__pycache__/
 
-UI/__pycache__/
+ui/__pycache__/
 
 build/
 
