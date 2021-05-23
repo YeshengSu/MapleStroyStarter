@@ -4,11 +4,11 @@ from PyQt5.QtCore import Qt, QFileInfo, QUrl
 from PyQt5.QtGui import QIcon, QFont, QPixmap, QPalette, QBrush, QColor
 from PyQt5.QtWidgets import QMainWindow, QDialog, QTreeWidgetItem
 
-from Script import utils, language
-from UI.MainWindow import Ui_MainWindow
-from UI.NewAccount import Ui_NewAccountWidget
-from UI.ResetPassword import Ui_ResetPasswordWidget
-from UI.TopUp import Ui_TopUp
+from script import utils, language
+from ui.MainWindow import Ui_MainWindow
+from ui.NewAccount import Ui_NewAccountWidget
+from ui.ResetPassword import Ui_ResetPasswordWidget
+from ui.TopUp import Ui_TopUp
 
 TEST_IP = '47.241.186.78 9595'
 
