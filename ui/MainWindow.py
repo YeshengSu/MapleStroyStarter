@@ -66,6 +66,7 @@ class Ui_MainWindow(object):
         self.RefreshServerButton = QtWidgets.QPushButton(self.centralwidget)
         self.RefreshServerButton.setGeometry(QtCore.QRect(290, 20, 41, 41))
         self.RefreshServerButton.setText("")
+        self.RefreshServerButton.setFlat(True)
         self.RefreshServerButton.setObjectName("RefreshServerButton")
         self.ShortCutButton = QtWidgets.QPushButton(self.centralwidget)
         self.ShortCutButton.setGeometry(QtCore.QRect(750, 120, 120, 40))
