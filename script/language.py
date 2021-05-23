@@ -25,3 +25,5 @@ SELECT_SERVER = '请选择服务器'
 SERVER_SITUATION_NORMAL = '流畅'
 SERVER_SITUATION_BUSY = '拥挤'
 SERVER_SITUATION_STOP = '暂停'
+
+WELCOME_CONTENT = '<font color=orange> 欢迎来到超神冒险岛大家庭 </font><br/><font color=\"#aa00bb\"> 选择服务器然后点击开始即可开始游戏 </font>'

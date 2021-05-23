@@ -57,9 +57,9 @@
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>520</y>
+      <y>410</y>
       <width>521</width>
-      <height>43</height>
+      <height>50</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -70,29 +70,14 @@
       <enum>QLayout::SetDefaultConstraint</enum>
      </property>
      <item>
-      <widget class="QPushButton" name="LoginButton">
+      <widget class="QPushButton" name="TopUpButton">
        <property name="font">
         <font>
          <pointsize>25</pointsize>
         </font>
        </property>
        <property name="text">
-        <string>登录服务器</string>
-       </property>
-       <property name="default">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="ResetButton">
-       <property name="font">
-        <font>
-         <pointsize>25</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>修改密码</string>
+        <string>游戏充值</string>
        </property>
       </widget>
      </item>
@@ -105,6 +90,18 @@
        </property>
        <property name="text">
         <string>注册账号</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="ResetButton">
+       <property name="font">
+        <font>
+         <pointsize>25</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>修改密码</string>
        </property>
       </widget>
      </item>
@@ -142,22 +139,74 @@
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="TopUpButton">
+   <widget class="QPushButton" name="ShortCutButton">
     <property name="geometry">
      <rect>
-      <x>650</x>
-      <y>450</y>
-      <width>230</width>
-      <height>50</height>
+      <x>750</x>
+      <y>120</y>
+      <width>120</width>
+      <height>40</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>30</pointsize>
+      <pointsize>20</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>游戏充值</string>
+     <string>桌面快捷</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LoginButton">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>490</y>
+      <width>341</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>25</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>开始游戏</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ReceptionButton">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>60</y>
+      <width>116</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>游戏客服</string>
+    </property>
+   </widget>
+   <widget class="QTextBrowser" name="InfoBrowser">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>60</y>
+      <width>361</width>
+      <height>241</height>
+     </rect>
     </property>
    </widget>
   </widget>

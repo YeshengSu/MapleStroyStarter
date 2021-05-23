@@ -166,11 +166,19 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.RegisterButton.clicked.connect(self.on_clicked_register)
         self.TopUpButton.clicked.connect(self.on_clicked_top_up)
         self.RefreshServerButton.clicked.connect(self.on_clicked_refresh)
+        self.ReceptionButton.clicked.connect(self.on_clicked_reception)
+        self.ShortCutButton.clicked.connect(self.on_clicked_short_cut)
 
         self.current_selected_ip = None
         self.current_selected_item = None
 
+        self.get_info()
         self.on_clicked_refresh()
+
+        #not develop
+        self.ReceptionButton.setVisible(False)
+        self.ShortCutButton.setVisible(False)
+        self.InfoBrowser.setVisible(False)
 
     def add_server_item(self, name, situation, ip):
         ft1 = QFont()
@@ -199,8 +207,23 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             server_item.setText(1, language.SERVER_SITUATION_STOP)
             server_item.setData(1, 1, False)
 
+    def get_info(self):
+        self.InfoBrowser.setAcceptRichText(True)
+        self.InfoBrowser.setText(language.WELCOME_CONTENT)
+
+    def start_maple_story(self):
+        import os
+        import subprocess
+        if not os.path.exists(utils.EXECUTION):
+            utils.popup_critical(self, language.OPEN_GAME_TITLE, language.OPEN_GAME_ERROR_CONTENT)
+        else:
+            command = utils.EXECUTION + ' ' + self.current_selected_ip
+            subprocess.Popen(command, shell=True)
+            print('start maple story')
+            print(command)
+
     def on_clicked_server_item(self, item, column):
-        print('server IP:', item.data(0, 1),'situation:', item.data(1, 1))
+        print('server IP:', item.data(0, 1),'connectable:', item.data(1, 1))
         if self.current_selected_item and self.current_selected_item is not item:
             self.current_selected_item.setCheckState(0, Qt.Unchecked)
         self.current_selected_item = item
@@ -240,16 +263,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         widget = TopUpWidget()
         widget.exec()
 
-    def start_maple_story(self):
-        import os
-        import subprocess
-        if not os.path.exists(utils.EXECUTION):
-            utils.popup_critical(self, language.OPEN_GAME_TITLE, language.OPEN_GAME_ERROR_CONTENT)
-        else:
-            command = utils.EXECUTION + ' ' + self.current_selected_ip
-            subprocess.Popen(command, shell=True)
-            print('start maple story')
-            print(command)
+    def on_clicked_reception(self):
+        print('reception')
+
+    def on_clicked_short_cut(self):
+        print('short cut')
 
 
 
