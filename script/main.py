@@ -1,5 +1,6 @@
 import webbrowser
 
+from PyQt5 import QtCore
 from PyQt5.QtCore import Qt, QFileInfo, QUrl
 from PyQt5.QtGui import QIcon, QFont, QPixmap, QPalette, QBrush, QColor
 from PyQt5.QtWidgets import QMainWindow, QDialog, QTreeWidgetItem
@@ -9,6 +10,8 @@ from ui.MainWindow import Ui_MainWindow
 from ui.NewAccount import Ui_NewAccountWidget
 from ui.ResetPassword import Ui_ResetPasswordWidget
 from ui.TopUp import Ui_TopUp
+
+_translate = QtCore.QCoreApplication.translate
 
 TEST_IP = '47.241.186.78 9595'
 
@@ -149,6 +152,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__(parent=parent)
         self.setupUi(self)
         self.setWindowIcon(QIcon(utils.HEAD_ICON_PATH))
+        self.setWindowTitle(_translate("MainWindow", "{} -V{}".format(language.WINDOW_TITLE, utils.VERSION)))
         self.RefreshServerButton.setIcon(QIcon(utils.REFRESH_ICON_PATH))
         self.RefreshServerButton.setIconSize(self.RefreshServerButton.size())
         palette = QPalette()
