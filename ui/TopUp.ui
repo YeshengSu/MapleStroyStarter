@@ -67,8 +67,8 @@
   <widget class="QLabel" name="Tipslabel">
    <property name="geometry">
     <rect>
-     <x>216</x>
-     <y>60</y>
+     <x>210</x>
+     <y>80</y>
      <width>171</width>
      <height>63</height>
     </rect>
@@ -85,13 +85,13 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>30</y>
      <width>551</width>
-     <height>44</height>
+     <height>54</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -118,13 +118,13 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>70</x>
-     <y>100</y>
+     <y>140</y>
      <width>461</width>
-     <height>171</height>
+     <height>131</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -192,7 +192,7 @@
      <widget class="QPushButton" name="Top6Button">
       <property name="font">
        <font>
-        <pointsize>28</pointsize>
+        <pointsize>26</pointsize>
        </font>
       </property>
       <property name="text">
