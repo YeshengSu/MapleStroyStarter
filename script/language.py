@@ -21,6 +21,8 @@ EMPTY_PASSWORD = '没有输入密码'
 CONSISTENT_PASSWORD = '两次密码相同'
 INCONSISTENT_PASSWORD = '两次密码不相同'
 
+START_GAME = '开始游戏'
+STARTING_GAME = '游戏中...'
 SERVER_ITEM = '服务器'
 SERVER_SITUATION = '状态'
 CANT_ENTER_SERVER = '服务器已暂停'
