@@ -193,7 +193,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.ReceptionButton.clicked.connect(self.on_clicked_reception)
         self.ShortCutButton.clicked.connect(self.on_clicked_short_cut)
 
-        self.is_playing_game = False
         self.timer = QTimer()
         self.current_selected_ip = None
         self.current_selected_item = None
@@ -248,14 +247,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             print('start maple story')
             print(command)
 
-            self.is_playing_game = True
+            self.LoginButton.setEnabled(False)
             self.LoginButton.setText(language.STARTING_GAME)
             self.timer.timeout.connect(self.timer_update)
             self.timer.start(10000)
 
     def timer_update(self):
-        self.is_playing_game = False
         self.LoginButton.setText(language.START_GAME)
+        self.LoginButton.setEnabled(True)
         self.timer.stop()
 
     def on_clicked_server_item(self, item, column):
