@@ -3,7 +3,7 @@ import webbrowser
 from PyQt5 import QtCore
 from PyQt5.QtCore import Qt, QFileInfo, QUrl
 from PyQt5.QtGui import QIcon, QFont, QPixmap, QPalette, QBrush, QColor
-from PyQt5.QtWidgets import QMainWindow, QDialog, QTreeWidgetItem
+from PyQt5.QtWidgets import QMainWindow, QDialog, QTreeWidgetItem, QLineEdit
 
 from script import utils, language
 from ui.MainWindow import Ui_MainWindow
@@ -29,6 +29,8 @@ class NewAccountWidget(QDialog, Ui_NewAccountWidget):
         palette = QPalette()
         palette.setBrush(QPalette.Background, QBrush(QPixmap(utils.BACKGROUND_ICON_PATH)))
         self.setPalette(palette)
+
+        self.NewPasswordEdit.setEchoMode(QLineEdit.Password)
 
         self.ConfirmButton.clicked.connect(self.on_clicked_confirm)
         self.ReturnButton.clicked.connect(self.on_clicked_return)
@@ -66,6 +68,9 @@ class ResetPasswordWidget(QDialog, Ui_ResetPasswordWidget):
         palette = QPalette()
         palette.setBrush(QPalette.Background, QBrush(QPixmap(utils.BACKGROUND_ICON_PATH)))
         self.setPalette(palette)
+
+        self.NewPasswordEdit.setEchoMode(QLineEdit.Password)
+        self.OldPasswordEdit.setEchoMode(QLineEdit.Password)
 
         self.ConfirmButton.clicked.connect(self.on_clicked_confirm)
         self.ReturnButton.clicked.connect(self.on_clicked_return)
