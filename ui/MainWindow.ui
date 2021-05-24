@@ -31,6 +31,10 @@
   <property name="windowTitle">
    <string>超神冒险岛登录器</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/图标/MapleStory.ico</normaloff>:/图标/MapleStory.ico</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="Serverlabel">
     <property name="geometry">
@@ -137,6 +141,10 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/图标/Refresh.png</normaloff>:/图标/Refresh.png</iconset>
     </property>
     <property name="flat">
      <bool>true</bool>

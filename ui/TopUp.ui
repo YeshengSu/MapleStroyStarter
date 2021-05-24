@@ -25,11 +25,15 @@
   <property name="windowTitle">
    <string>游戏充值</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/图标/MapleStory.ico</normaloff>:/图标/MapleStory.ico</iconset>
+  </property>
   <widget class="QPushButton" name="ReturnButton">
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>300</y>
+     <y>370</y>
      <width>200</width>
      <height>50</height>
     </rect>
@@ -47,7 +51,7 @@
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>300</y>
+     <y>370</y>
      <width>200</width>
      <height>50</height>
     </rect>
@@ -67,9 +71,9 @@
   <widget class="QLabel" name="Tipslabel">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>140</x>
      <y>80</y>
-     <width>171</width>
+     <width>341</width>
      <height>63</height>
     </rect>
    </property>
@@ -79,7 +83,7 @@
     </font>
    </property>
    <property name="text">
-    <string>首充双倍</string>
+    <string>1元 = 500点券</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -121,10 +125,10 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>140</y>
-     <width>461</width>
-     <height>131</height>
+     <x>30</x>
+     <y>130</y>
+     <width>541</width>
+     <height>221</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -138,11 +142,11 @@
      <widget class="QPushButton" name="Top328Button">
       <property name="font">
        <font>
-        <pointsize>28</pointsize>
+        <pointsize>35</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>328</string>
+       <string>328元</string>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -156,11 +160,11 @@
      <widget class="QPushButton" name="Top98Button">
       <property name="font">
        <font>
-        <pointsize>28</pointsize>
+        <pointsize>35</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>98</string>
+       <string>98元</string>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -174,11 +178,11 @@
      <widget class="QPushButton" name="Top50Button">
       <property name="font">
        <font>
-        <pointsize>28</pointsize>
+        <pointsize>35</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>50</string>
+       <string>50元</string>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -192,11 +196,11 @@
      <widget class="QPushButton" name="Top6Button">
       <property name="font">
        <font>
-        <pointsize>26</pointsize>
+        <pointsize>35</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>6</string>
+       <string>6元</string>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -210,11 +214,11 @@
      <widget class="QPushButton" name="Top25Button">
       <property name="font">
        <font>
-        <pointsize>28</pointsize>
+        <pointsize>35</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>25</string>
+       <string>25元</string>
       </property>
       <property name="checkable">
        <bool>true</bool>
@@ -228,11 +232,11 @@
      <widget class="QPushButton" name="Top648Button">
       <property name="font">
        <font>
-        <pointsize>28</pointsize>
+        <pointsize>35</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>648</string>
+       <string>648元</string>
       </property>
       <property name="checkable">
        <bool>true</bool>

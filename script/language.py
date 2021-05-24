@@ -10,6 +10,7 @@ RESET_PASSWORD_POPUP_CONTENT = '是否确认修改密码？'
 TOP_UP_POPUP_TITLE = '充值账号'
 TOP_UP_POPUP_CONTENT = '是否确认账号 {} 充值 {} ？'
 TOP_UP_POPUP_NOT_SELECTED = '请选择充值金额'
+TOP_UP_TIPS = '{}元 = {}点券'
 
 OPEN_GAME_TITLE = '打开游戏'
 OPEN_GAME_SUCCEED_CONTENT = '成功打开游戏'

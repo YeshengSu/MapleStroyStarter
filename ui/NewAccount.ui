@@ -28,11 +28,15 @@
   <property name="windowTitle">
    <string>注册账号</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/图标/MapleStory.ico</normaloff>:/图标/MapleStory.ico</iconset>
+  </property>
   <widget class="QPushButton" name="ReturnButton">
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>310</y>
+     <y>370</y>
      <width>200</width>
      <height>50</height>
     </rect>
@@ -115,7 +119,7 @@
    <property name="geometry">
     <rect>
      <x>50</x>
-     <y>310</y>
+     <y>370</y>
      <width>200</width>
      <height>50</height>
     </rect>

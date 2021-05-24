@@ -108,6 +108,12 @@ class TopUpWidget(QDialog, Ui_TopUp):
 
         self.ConfirmButton.clicked.connect(self.on_clicked_confirm)
         self.ReturnButton.clicked.connect(self.on_clicked_return)
+        self.Top6Button.clicked.connect(self.on_clicked_top_up)
+        self.Top25Button.clicked.connect(self.on_clicked_top_up)
+        self.Top50Button.clicked.connect(self.on_clicked_top_up)
+        self.Top98Button.clicked.connect(self.on_clicked_top_up)
+        self.Top328Button.clicked.connect(self.on_clicked_top_up)
+        self.Top648Button.clicked.connect(self.on_clicked_top_up)
 
         self.top_up_button_dict = {
             self.Top6Button  : 6,
@@ -117,6 +123,15 @@ class TopUpWidget(QDialog, Ui_TopUp):
             self.Top328Button: 328,
             self.Top648Button: 648,
         }
+
+    def on_clicked_top_up(self):
+        top_up_value = 0
+        for button, value in self.top_up_button_dict.items():
+            if button.isChecked():
+                top_up_value = value
+                break
+
+        self.Tipslabel.setText(language.TOP_UP_TIPS.format(top_up_value, top_up_value*500))
 
     def on_clicked_confirm(self):
         if not self.AccountEdit.text():
