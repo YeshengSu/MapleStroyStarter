@@ -203,7 +203,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         #not develop
         self.ReceptionButton.setVisible(False)
         self.ShortCutButton.setVisible(False)
-        self.InfoBrowser.setVisible(False)
+        self.TopUpButton.setVisible(False)
 
     def add_server_item(self, name, situation, ip):
         ft1 = QFont()
@@ -273,9 +273,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.current_selected_ip = None
         self.ServerList.clear()
 
-        self.add_server_item('超神服务器', utils.SERVER_NORMAL, TEST_IP)
-        self.add_server_item('超神服务器', utils.SERVER_BUSY, TEST_IP)
-        self.add_server_item('超神服务器', utils.SERVER_STOP, TEST_IP)
+        self.add_server_item('超神服务器1', utils.SERVER_NORMAL, TEST_IP)
+        self.add_server_item('超神服务器2', utils.SERVER_BUSY, TEST_IP)
+        self.add_server_item('超神服务器3', utils.SERVER_STOP, TEST_IP)
 
     def on_clicked_login(self):
         if self.current_selected_ip == '':
