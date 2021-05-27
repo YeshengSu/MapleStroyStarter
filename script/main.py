@@ -270,6 +270,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def on_clicked_refresh(self):
         print('get server list')
+        from pip._vendor import requests
         import urllib
         response = urllib.request.urlopen(utils.SERVER_LIST_URL)
         content = response.read().decode("utf-8")
