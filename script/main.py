@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import webbrowser
 
 from PyQt5 import QtCore
@@ -12,8 +14,6 @@ from ui.ResetPassword import Ui_ResetPasswordWidget
 from ui.TopUp import Ui_TopUp
 
 _translate = QtCore.QCoreApplication.translate
-
-TEST_IP = '47.241.186.78 9595'
 
 ORANGE_COLOR = QColor(255, 193, 37)
 RED_COLOR = QColor(238, 99, 99)
@@ -194,7 +194,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.ShortCutButton.clicked.connect(self.on_clicked_short_cut)
 
         self.timer = QTimer()
-        self.current_selected_ip = None
+        self.current_selected_ip_port = None
         self.current_selected_item = None
 
         self.get_info()
@@ -205,7 +205,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.ShortCutButton.setVisible(False)
         self.TopUpButton.setVisible(False)
 
-    def add_server_item(self, name, situation, ip):
+    def add_server_item(self, name, situation, ip_port):
         ft1 = QFont()
         ft1.setPointSize(12)
 
@@ -213,23 +213,23 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         server_item.setCheckState(0, Qt.Unchecked)
         server_item.setFont(0, ft1)
         server_item.setText(0, name)
-        server_item.setToolTip(0, ip)
-        server_item.setData(0, 1, ip)
+        server_item.setToolTip(0, ip_port)
+        server_item.setData(0, 1, ip_port)
 
         if situation == utils.SERVER_NORMAL:
             server_item.setFont(1, ft1)
             server_item.setForeground(1, GREEN_COLOR)
-            server_item.setText(1, language.SERVER_SITUATION_NORMAL)
+            server_item.setText(1, language.SERVER_SITUATION_CONTENT.get(situation))
             server_item.setData(1, 1, True)
         elif situation == utils.SERVER_BUSY:
             server_item.setFont(1, ft1)
             server_item.setForeground(1, YELLOW_COLOR)
-            server_item.setText(1, language.SERVER_SITUATION_BUSY)
+            server_item.setText(1, language.SERVER_SITUATION_CONTENT.get(situation))
             server_item.setData(1, 1, True)
         elif situation == utils.SERVER_STOP:
             server_item.setFont(1, ft1)
             server_item.setForeground(1, RED_COLOR)
-            server_item.setText(1, language.SERVER_SITUATION_STOP)
+            server_item.setText(1, language.SERVER_SITUATION_CONTENT.get(situation))
             server_item.setData(1, 1, False)
 
     def get_info(self):
@@ -242,7 +242,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if not os.path.exists(utils.EXECUTION):
             utils.popup_critical(self, language.OPEN_GAME_TITLE, language.OPEN_GAME_ERROR_CONTENT)
         else:
-            command = utils.EXECUTION + ' ' + self.current_selected_ip
+            command = utils.EXECUTION + ' ' + self.current_selected_ip_port
             subprocess.Popen(command, shell=True)
             print('start maple story')
             print(command)
@@ -258,32 +258,38 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.timer.stop()
 
     def on_clicked_server_item(self, item, column):
-        print('server IP:', item.data(0, 1),'connectable:', item.data(1, 1))
+        print('server IP_Port:', item.data(0, 1),'connectable:', item.data(1, 1))
         if self.current_selected_item and self.current_selected_item is not item:
             self.current_selected_item.setCheckState(0, Qt.Unchecked)
         self.current_selected_item = item
         self.current_selected_item.setCheckState(0, Qt.Checked)
         if item.data(1, 1):
-            self.current_selected_ip = item.data(0, 1)
+            self.current_selected_ip_port = item.data(0, 1)
         else:
-            self.current_selected_ip = ''
+            self.current_selected_ip_port = ''
 
     def on_clicked_refresh(self):
         print('get server list')
-        self.current_selected_ip = None
+        import urllib
+        response = urllib.request.urlopen(utils.SERVER_LIST_URL)
+        content = response.read().decode("utf-8")
+        content_list = utils.parse_cfg_str_to_list_of_list(content)
+
+        self.current_selected_ip_port = None
         self.ServerList.clear()
 
-        self.add_server_item('超神服务器1', utils.SERVER_NORMAL, TEST_IP)
-        self.add_server_item('超神服务器2', utils.SERVER_BUSY, TEST_IP)
-        self.add_server_item('超神服务器3', utils.SERVER_STOP, TEST_IP)
+        print('server list', content_list)
+        for ip, port, server_name, situation in content_list:
+            ip_port = ip + ' ' + port
+            self.add_server_item(server_name, int(situation), ip_port)
 
     def on_clicked_login(self):
-        if self.current_selected_ip == '':
+        if self.current_selected_ip_port == '':
             utils.popup_critical(self, language.SERVER_ITEM, language.CANT_ENTER_SERVER)
-        elif self.current_selected_ip is None:
+        elif self.current_selected_ip_port is None:
             utils.popup_critical(self, language.SERVER_ITEM, language.SELECT_SERVER)
         else:
-            print('login in server', self.current_selected_ip)
+            print('login in server', self.current_selected_ip_port)
             self.start_maple_story()
 
     def on_clicked_reset(self):

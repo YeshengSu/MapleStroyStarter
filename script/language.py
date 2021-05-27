@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 WINDOW_TITLE = '超神冒险岛登录器'
 
 NEW_ACCOUNT_POPUP_TITLE = '创建账号'
@@ -27,8 +28,17 @@ SERVER_ITEM = '服务器'
 SERVER_SITUATION = '状态'
 CANT_ENTER_SERVER = '服务器已暂停'
 SELECT_SERVER = '请选择服务器'
-SERVER_SITUATION_NORMAL = '流畅'
-SERVER_SITUATION_BUSY = '拥挤'
-SERVER_SITUATION_STOP = '暂停'
+
+SERVER_SITUATION_CONTENT = {
+    1:'流畅',
+    2:'拥挤',
+    3:'暂停',
+}
+
+SERVER_NAME_CONTENT = {
+    1:'冒险岛服务器',
+    2:'服务器',
+    3:'服务器',
+}
 
 WELCOME_CONTENT = '<font color=orange> 欢迎来到超神冒险岛大家庭 </font><br/><font color=\"#aa00bb\"> 选择服务器然后点击开始即可开始游戏 </font>'
