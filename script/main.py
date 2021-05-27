@@ -290,8 +290,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         content_list = utils.parse_cfg_str_to_list_of_list(response.text)
 
         self.current_selected_ip_port = None
+        self.current_selected_item = None
         self.ServerList.clear()
-
 
         for ip, port, server_name, situation in content_list:
             ip_port = ip + ' ' + port
