@@ -3,8 +3,8 @@
 import webbrowser
 
 from PyQt5 import QtCore
-from PyQt5.QtCore import Qt, QFileInfo, QUrl, QTimer
-from PyQt5.QtGui import QIcon, QFont, QPixmap, QPalette, QBrush, QColor
+from PyQt5.QtCore import Qt, QFileInfo, QUrl, QTimer, QRegExp
+from PyQt5.QtGui import QIcon, QFont, QPixmap, QPalette, QBrush, QColor, QRegExpValidator
 from PyQt5.QtWidgets import QMainWindow, QDialog, QTreeWidgetItem, QLineEdit
 
 from script import utils, language
@@ -30,7 +30,12 @@ class NewAccountWidget(QDialog, Ui_NewAccountWidget):
         palette.setBrush(QPalette.Background, QBrush(QPixmap(utils.BACKGROUND_ICON_PATH)))
         self.setPalette(palette)
 
-        self.NewPasswordEdit.setEchoMode(QLineEdit.Password)
+        # 限制只能输入数字和子母
+        reg = QRegExp('[a-zA-z0-9]+$')
+        validator = QRegExpValidator(self)
+        validator.setRegExp(reg)
+        self.AccountEdit.setValidator(validator)
+        self.NewPasswordEdit.setValidator(validator)
 
         self.ConfirmButton.clicked.connect(self.on_clicked_confirm)
         self.ReturnButton.clicked.connect(self.on_clicked_return)
@@ -69,8 +74,13 @@ class ResetPasswordWidget(QDialog, Ui_ResetPasswordWidget):
         palette.setBrush(QPalette.Background, QBrush(QPixmap(utils.BACKGROUND_ICON_PATH)))
         self.setPalette(palette)
 
-        self.NewPasswordEdit.setEchoMode(QLineEdit.Password)
-        self.OldPasswordEdit.setEchoMode(QLineEdit.Password)
+        # 限制只能输入数字和子母
+        reg = QRegExp('[a-zA-z0-9]+$')
+        validator = QRegExpValidator(self)
+        validator.setRegExp(reg)
+        self.AccountEdit.setValidator(validator)
+        self.NewPasswordEdit.setValidator(validator)
+        self.OldPasswordEdit.setValidator(validator)
 
         self.ConfirmButton.clicked.connect(self.on_clicked_confirm)
         self.ReturnButton.clicked.connect(self.on_clicked_return)

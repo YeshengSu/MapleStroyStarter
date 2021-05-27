@@ -81,8 +81,17 @@
        <widget class="QLineEdit" name="AccountEdit">
         <property name="font">
          <font>
-          <pointsize>25</pointsize>
+          <pointsize>20</pointsize>
          </font>
+        </property>
+        <property name="maxLength">
+         <number>20</number>
+        </property>
+        <property name="placeholderText">
+         <string>数字和子母</string>
+        </property>
+        <property name="clearButtonEnabled">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -106,8 +115,17 @@
        <widget class="QLineEdit" name="NewPasswordEdit">
         <property name="font">
          <font>
-          <pointsize>25</pointsize>
+          <pointsize>20</pointsize>
          </font>
+        </property>
+        <property name="maxLength">
+         <number>20</number>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+        <property name="placeholderText">
+         <string>数字和子母</string>
         </property>
        </widget>
       </item>
