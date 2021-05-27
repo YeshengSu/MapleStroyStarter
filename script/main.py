@@ -206,8 +206,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.TopUpButton.setVisible(False)
 
     def add_server_item(self, name, situation, ip_port):
+        print('server name:{}, situation:{}, ip_port:{}'.format(name, int(situation), ip_port))
         ft1 = QFont()
-        ft1.setPointSize(12)
+        ft1.setPointSize(10)
 
         server_item = QTreeWidgetItem(self.ServerList)
         server_item.setCheckState(0, Qt.Unchecked)
@@ -270,16 +271,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def on_clicked_refresh(self):
         print('get server list')
-        from pip._vendor import requests
-        import urllib
-        response = urllib.request.urlopen(utils.SERVER_LIST_URL)
-        content = response.read().decode("utf-8")
-        content_list = utils.parse_cfg_str_to_list_of_list(content)
+
+        import requests
+        response = requests.get(utils.SERVER_LIST_URL)
+        response.encoding = "utf-8"
+        print('response text: ', response.text)
+
+        content_list = utils.parse_cfg_str_to_list_of_list(response.text)
 
         self.current_selected_ip_port = None
         self.ServerList.clear()
 
-        print('server list', content_list)
+
         for ip, port, server_name, situation in content_list:
             ip_port = ip + ' ' + port
             self.add_server_item(server_name, int(situation), ip_port)
