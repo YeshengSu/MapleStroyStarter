@@ -8,7 +8,7 @@ from PyQt5.QtCore import Qt, QFileInfo, QUrl, QTimer, QRegExp
 from PyQt5.QtGui import QIcon, QFont, QPixmap, QPalette, QBrush, QColor, QRegExpValidator
 from PyQt5.QtWidgets import QMainWindow, QDialog, QTreeWidgetItem, QLineEdit
 
-from script import utils, language
+from script import utils, language, protocol
 from ui.MainWindow import Ui_MainWindow
 from ui.NewAccount import Ui_NewAccountWidget
 from ui.ResetPassword import Ui_ResetPasswordWidget
@@ -55,13 +55,11 @@ class NewAccountWidget(QDialog, Ui_NewAccountWidget):
             print('account:', self.AccountEdit.text())
             print('password:', self.NewPasswordEdit.text())
 
-            response = requests.get(
-                utils.CREATE_ACCOUNT_URL.format(self.AccountEdit.text(), self.NewPasswordEdit.text()))
-            ret_dict = json.loads(response.text)
+            ret_dict = protocol.create_account_request(self.AccountEdit.text(), self.NewPasswordEdit.text())
             print('response: ', ret_dict)
 
-            if ret_dict['data'] == -1:
-                utils.popup_critical(self, language.NEW_ACCOUNT_POPUP_TITLE, language.NEW_ACCOUNT_POPUP_FAILED)
+            if ret_dict['code'] == -1:
+                utils.popup_critical(self, language.NEW_ACCOUNT_POPUP_TITLE, ret_dict['data'])
             else:
                 def cb2():
                     self.close()
@@ -114,12 +112,11 @@ class ResetPasswordWidget(QDialog, Ui_ResetPasswordWidget):
             print('old password:', self.OldPasswordEdit.text())
             print('new password:', self.NewPasswordEdit.text())
 
-            response = requests.get(utils.UPDATE_ACCOUNT_URL.format(self.AccountEdit.text(), self.NewPasswordEdit.text()))
-            ret_dict = json.loads(response.text)
+            ret_dict = protocol.update_account_request(self.AccountEdit.text(), self.NewPasswordEdit.text(), self.OldPasswordEdit.text())
             print('response: ', ret_dict)
 
-            if ret_dict['data'] == -1:
-                utils.popup_critical(self, language.RESET_PASSWORD_POPUP_TITLE, language.RESET_PASSWORD_POPUP_FAILED)
+            if ret_dict['code'] == -1:
+                utils.popup_critical(self, language.RESET_PASSWORD_POPUP_TITLE, ret_dict['data'])
             else:
                 def cb2():
                     self.close()
@@ -302,16 +299,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def on_clicked_refresh(self):
         print('get server list')
 
-        response = requests.get(utils.SERVER_LIST_URL)
-        response.encoding = "utf-8"
-        print('response: ', response.text)
-
-        content_list = utils.parse_cfg_str_to_list_of_list(response.text)
-
         self.current_selected_ip_port = None
         self.current_selected_item = None
         self.ServerList.clear()
 
+        ret_text = protocol.server_list_request()
+        print('response: ', ret_text)
+
+        content_list = utils.parse_cfg_str_to_list_of_list(ret_text)
         for ip, port, server_name, situation in content_list:
             ip_port = ip + ' ' + port
             self.add_server_item(server_name, int(situation), ip_port)
