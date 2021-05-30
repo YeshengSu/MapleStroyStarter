@@ -10,6 +10,8 @@ HEAD_ICON_PATH = 'res/MapleStory.ico'
 REFRESH_ICON_PATH = 'res/Refresh.png'
 BACKGROUND_ICON_PATH = 'res/BackGround.jpg'
 SERVER_LIST_URL = 'http://47.241.186.78/server.txt'
+CREATE_ACCOUNT_URL = 'http://47.241.186.78/userinfo/userinfo_insert.php?userId={}&pass={}'
+UPDATE_ACCOUNT_URL = 'http://47.241.186.78/userinfo/update.php?userId={}&password={}'
 MAPLE_STORY_URL = 'http://www.baidu.com'
 
 SERVER_NORMAL = 1
