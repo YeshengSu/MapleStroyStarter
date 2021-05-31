@@ -38,10 +38,4 @@ SERVER_SITUATION_CONTENT = {
     3:'暂停',
 }
 
-SERVER_NAME_CONTENT = {
-    1:'冒险岛服务器',
-    2:'服务器',
-    3:'服务器',
-}
-
 WELCOME_CONTENT = '<font color=orange> 欢迎来到超神冒险岛大家庭 </font><br/><font color=\"#aa00bb\"> 选择服务器然后点击开始即可开始游戏 </font>'

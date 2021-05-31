@@ -3,12 +3,19 @@ import json
 import requests
 
 SERVER_LIST_URL = 'http://47.241.186.78/server.txt'
+SERVER_NOTICE_URL = 'http://47.241.186.78/notice.txt'
 CREATE_ACCOUNT_URL = 'http://47.241.186.78/userinfo/userinfo_insert.php?userId={}&pass={}'
 UPDATE_ACCOUNT_URL = 'http://47.241.186.78/userinfo/update.php?userId={}&password={}&oldpass={}'
 
 
 def server_list_request():
     response = requests.get(SERVER_LIST_URL)
+    response.encoding = "utf-8"
+    ret_text = response.text
+    return ret_text
+
+def server_notice_request():
+    response = requests.get(SERVER_NOTICE_URL)
     response.encoding = "utf-8"
     ret_text = response.text
     return ret_text

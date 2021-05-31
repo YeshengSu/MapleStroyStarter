@@ -262,7 +262,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def get_info(self):
         self.InfoBrowser.setAcceptRichText(True)
-        self.InfoBrowser.setText(language.WELCOME_CONTENT)
+        ret_text = protocol.server_notice_request()
+        print('notice:', ret_text)
+        self.InfoBrowser.setText(ret_text)
 
     def start_maple_story(self):
         import os
